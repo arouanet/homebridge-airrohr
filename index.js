@@ -109,7 +109,7 @@ class AirRohrAccessory {
         let percentPm10 = parseFloat(pm10) / 50.0;
         // PM2.5: 25 µg/m³ daily limit
         let percentPm25 = parseFloat(pm25) / 25.0;
-        let qualityPercentage = (percentPm10 + percentPm25) / 2.0;
+        let qualityPercentage = Math.max(percentPm10, percentPm25);
         let absChange = Math.abs(this.qualityPercentage - qualityPercentage);
         let wasNotSet = this.qualityPercentage == undefined || this.qualityPercentage == null;
         this.qualityPercentage = qualityPercentage;
