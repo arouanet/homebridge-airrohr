@@ -11,7 +11,7 @@ It can be used to see the status of your own sensor in HomeKit. You can also use
 - See air quality (incl. particulates values for PM10 and PM2.5), temperature and humidity in HomeKit and the Home app
 - Get the data from a sensor on your local network
 - Get the data from public sensor on `api.luftdaten.info`
-- _Soon:_ See history for temperature, etc. using the Elgato Eve app 
+- See history for temperature, etc. using the Elgato Eve app
 
 ![homebridge-airrohr sensor in the wild](img/sensor.jpeg)
 
@@ -19,7 +19,7 @@ It can be used to see the status of your own sensor in HomeKit. You can also use
 
 First follow the instructions for [HomeBridge](http://github.com/nfarina/homebridge). 
 
-Install `homebridge-airrohr` using `(sudo) npm install -g homebridge-airrohr`.
+Install `homebridge-airrohr` using `(sudo) npm install -g arouanet/homebridge-airrohr`.
 
 Configure your AirRohr sensor in the `homebridge` settings file. See [config.sample.json](config.sample.json). All settings except `update_interval_seconds` (defaults to 120 seconds) and `history` (defaults to persisting to memory) are required.
 
