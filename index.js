@@ -50,7 +50,7 @@ class AirRohrAccessory {
       this.temperatureService.addOptionalCharacteristic(CustomCharacteristic.AirPressure);
       // Humidity sensor
       this.humidityService = new Service.HumiditySensor(`Humidity ${this.displayName}`);
-      this.loggingService = new FakeGatoHistoryService('weather', this, { storage: 'fs' });
+      this.loggingService = new FakeGatoHistoryService('weather', this, this.historyOptions);
     }
     if (haveAirQualityData) {
       // AirQuality Sensor
