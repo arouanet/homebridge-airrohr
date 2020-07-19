@@ -35,7 +35,7 @@ class AirRohrAccessory {
     if (!this.updateIntervalSeconds) {
       this.updateIntervalSeconds = 120;
     }
-    this.log("AirRohr: Update interval", this.updateIntervalSeconds, "s");
+    this.log.info("AirRohr: Update interval", this.updateIntervalSeconds, "s");
     this.historyOptions = config["history"] || {};
     const haveAirQualityData = !!this.jsonURL || !!this.airQualityDataURL;
     const haveTemperatureData = !!this.jsonURL || !!this.temperatureDataURL;
@@ -72,28 +72,28 @@ class AirRohrAccessory {
 
       this.informationService.setCharacteristic(Characteristic.FirmwareRevision, dataCache.software_version);
       if (haveTemperatureData && temperature) {
-        this.log("Measured temperature", temperature, "°C");
+        this.log.debug("Measured temperature", temperature, "°C");
         this.temperature = parseFloat(temperature);
         this.temperatureService.setCharacteristic(Characteristic.CurrentTemperature, this.temperature);
       }
       if (haveTemperatureData && humidity) {
-        this.log("Measured humidity", humidity, "%");
+        this.log.debug("Measured humidity", humidity, "%");
         this.humidity = humidity;
         this.humidityService.setCharacteristic(Characteristic.CurrentRelativeHumidity, this.humidity);
       }
       if (haveTemperatureData && pressure) {
-        this.log("Measured pressure", pressure, "hPa");
+        this.log.debug("Measured pressure", pressure, "hPa");
         this.pressure = pressure;
         this.temperatureService.setCharacteristic(CustomCharacteristic.AirPressure, this.pressure);
       }
       if (haveAirQualityData && pm25) {
-        this.log("Measured PM2.5", pm25, "µg/m³");
+        this.log.debug("Measured PM2.5", pm25, "µg/m³");
         this.pm25 = pm25;
         this.airQualityService.setCharacteristic(Characteristic.PM2_5Density, this.pm25);
       }
       
       if (haveAirQualityData && pm10) {
-        this.log("Measured PM10", pm10, "µg/m³");
+        this.log.debug("Measured PM10", pm10, "µg/m³");
         this.pm10 = pm10;
         this.airQualityService.setCharacteristic(Characteristic.PM10Density, this.pm10);
       }
@@ -158,7 +158,7 @@ class AirRohrAccessory {
       const updateCallback = (error) => {
         this.isUpdating = false;
         if (error) {
-          this.log(`Could not get sensor data: ${error}`);
+          this.log.warn(`Could not get sensor data: ${error}`);
         }
         else {
           this.updateServices(this.dataCache);
