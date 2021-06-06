@@ -4,14 +4,19 @@
 
 [HomeBridge](http://github.com/nfarina/homebridge) module for the DIY [luftdaten.info](https://luftdaten.info) [air particulates](https://en.wikipedia.org/wiki/Particulates) sensor from [OpenData Stuttgart](ttps://github.com/opendata-stuttgart/).
 
-It can be used to see the status of your own sensor in HomeKit. You can also use it to see another sensor if its data is published to api.luftdaten.info (see [here](http://luftdaten.info/faq/#toggle-id-8)).
+It can be used to see the status of your own sensor in HomeKit. You can also use it to see another sensor if its data is published to data.sensor.community (see [here for more info](http://sensor.community)).
 
 ## Features
 
 - See air quality (incl. particulates values for PM10 and PM2.5), temperature and humidity in HomeKit and the Home app
 - Get the data from a sensor on your local network
-- Get the data from public sensor on `api.luftdaten.info`
-- See history for temperature, etc. using the Elgato Eve app
+- Get the data from public sensor on `data.sensor.community`
+- See history for temperature, etc. using the Elgato Eve app 
+- Supported sensors / combinations : 
+  - SHT3X (temperature & air quality)
+  - DHT22 + BMP280 (temperature & air quality)
+  - SDS011 (temperature & air quality)
+  - and adding more is simple as long as you get the data as JSON via HTTP
 
 ![homebridge-airrohr sensor in the wild](img/sensor.jpeg)
 
